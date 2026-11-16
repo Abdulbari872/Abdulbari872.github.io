@@ -290,6 +290,21 @@
     height: 400px;
   }
 }
+
+    /* Client-facing project showcase */
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px}
+    .project-card{overflow:hidden;background:#101c30;border:1px solid #263650;border-radius:20px;transition:transform .2s,border-color .2s}
+    .project-card:hover{transform:translateY(-5px);border-color:#38bdf8}
+    .flow-visual{min-height:170px;background:radial-gradient(ellipse at center,#183e65 0%,#091628 75%);display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 12px;border-bottom:1px solid #263650}
+    .flow-visual b{color:#38bdf8;font-size:22px}
+    .flow-step{min-width:73px;min-height:75px;padding:12px 6px;background:#142b46;border:1px solid #34658a;border-radius:13px;text-align:center;font-size:26px;box-shadow:0 5px 20px #0004}
+    .flow-step small{display:block;color:#d4e9f7;font-size:11px;line-height:1.5;margin-top:3px}
+    .project-body{padding:24px}.project-body h3{font-size:22px;line-height:1.3;margin:14px 0 10px}.project-body p{color:#a6b6cc;font-size:15px;margin:0 0 18px}
+    .status{display:inline-block;border-radius:100px;padding:5px 12px;font-size:12px;font-weight:bold}
+    .status.done{color:#a6f4cd;background:#153d37}.status.progress{color:#ffda91;background:#4c361a}.status.concept{color:#b9caff;background:#29365b}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{font-size:12px;color:#8bdcff;background:#163451;padding:5px 10px;border-radius:20px}
+    @media(max-width:800px){.project-grid{grid-template-columns:1fr}.flow-visual{gap:6px}.flow-step{min-width:63px;font-size:22px}}
+
   </style>
 </head>
 <body>
@@ -442,53 +457,15 @@
 
     <section class="about" id="projects">
       <div class="container">
-        <h2 class="section-title">
-          Featured <span>Projects</span>
-        </h2>
-
-        <p class="section-subtitle">
-          Selected automation work and projects
-          currently in development.
-        </p>
-
-        <div class="grid">
-
-          <div class="card">
-            <div class="symbol">📧</div>
-            <h3>AI Email Auto-Reply Assistant</h3>
-            <p>
-              An n8n workflow that uses AI to prepare
-              email replies and record activity.
-            </p>
-            <span class="tag">n8n</span>
-            <span class="tag">AI</span>
-            <span class="tag">Gmail</span>
-          </div>
-
-          <div class="card">
-            <div class="symbol">🎯</div>
-            <h3>AI Lead Qualification</h3>
-            <p>
-              A workflow that collects leads,
-              analyzes inquiries, and helps organize
-              lead qualification.
-            </p>
-            <span class="tag">n8n</span>
-            <span class="tag">OpenAI</span>
-          </div>
-
-          <div class="card">
-            <div class="symbol">💬</div>
-            <h3>WhatsApp AI Sales Agent</h3>
-            <p>
-              An AI-powered sales assistant project
-              connecting conversations, customer
-              records, and automation workflows.
-            </p>
-            <span class="tag">In Development</span>
-            <span class="tag">Supabase</span>
-          </div>
-
+        <div class="eyebrow">SELECTED WORK</div>
+        <h2 class="section-title">Automation <span>Projects</span></h2>
+        <p class="section-subtitle">Practical AI workflows designed around real business challenges. Diagrams below are illustrative, not screenshots of live systems.</p>
+        <div class="project-grid">
+          <article class="project-card"><div class="flow-visual"><div class="flow-step">✉️<small>Gmail</small></div><b>→</b><div class="flow-step">⚡<small>n8n</small></div><b>→</b><div class="flow-step">🤖<small>AI Draft</small></div><b>→</b><div class="flow-step">📊<small>Log</small></div></div><div class="project-body"><span class="status done">Built workflow</span><h3>AI Email Auto-Reply Assistant</h3><p>Processes incoming emails, prepares AI-assisted reply drafts and logs activity for review.</p><div class="tags"><span>n8n</span><span>Gmail</span><span>AI</span></div></div></article>
+          <article class="project-card"><div class="flow-visual"><div class="flow-step">📝<small>Lead Form</small></div><b>→</b><div class="flow-step">⚡<small>n8n</small></div><b>→</b><div class="flow-step">🧠<small>AI Score</small></div><b>→</b><div class="flow-step">📧<small>Notify</small></div></div><div class="project-body"><span class="status done">Built workflow</span><h3>AI Lead Qualification</h3><p>Captures enquiries, evaluates lead information with AI and routes results for follow-up.</p><div class="tags"><span>Forms</span><span>n8n</span><span>OpenAI</span></div></div></article>
+          <article class="project-card"><div class="flow-visual"><div class="flow-step">💬<small>WhatsApp</small></div><b>→</b><div class="flow-step">🤖<small>AI Agent</small></div><b>→</b><div class="flow-step">🗄️<small>Supabase</small></div></div><div class="project-body"><span class="status progress">In development</span><h3>WhatsApp AI Sales Agent</h3><p>Customer enquiry handling, lead records and AI-assisted sales conversations. Outbound messaging integration is still being finalized.</p><div class="tags"><span>WhatsApp API</span><span>n8n</span><span>Supabase</span></div></div></article>
+          <article class="project-card"><div class="flow-visual"><div class="flow-step">🩺<small>Patient</small></div><b>→</b><div class="flow-step">🤖<small>Assistant</small></div><b>→</b><div class="flow-step">📅<small>Calendar</small></div></div><div class="project-body"><span class="status concept">Demo concept</span><h3>Clinic Appointment Assistant</h3><p>A proposed appointment request and reminder workflow for medical and dental practices.</p><div class="tags"><span>AI Chatbot</span><span>Calendar</span><span>n8n</span></div></div></article>
+          <article class="project-card"><div class="flow-visual"><div class="flow-step">🏨<small>Guest</small></div><b>→</b><div class="flow-step">💬<small>Chatbot</small></div><b>→</b><div class="flow-step">📋<small>Request</small></div></div><div class="project-body"><span class="status concept">Demo concept</span><h3>Hospitality Enquiry Automation</h3><p>A proposed assistant for restaurant and hotel FAQs, enquiry capture and booking requests.</p><div class="tags"><span>Chatbot</span><span>Workflow</span><span>CRM</span></div></div></article>
         </div>
       </div>
     </section>
@@ -512,7 +489,7 @@
             </a>
           </div>
           <p>
-            Direct contact details will be added soon.
+            Have a project in mind? Reach out through GitHub to discuss your requirements.
           </p>
         </div>
       </div>
