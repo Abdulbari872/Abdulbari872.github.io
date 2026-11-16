@@ -305,6 +305,18 @@
     .tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{font-size:12px;color:#8bdcff;background:#163451;padding:5px 10px;border-radius:20px}
     @media(max-width:800px){.project-grid{grid-template-columns:1fr}.flow-visual{gap:6px}.flow-step{min-width:63px;font-size:22px}}
 
+
+    /* Testimonials: static, no external storage */
+    .review-wrap{max-width:920px;margin:auto}.review-panel{background:#101c30;border:1px solid #263650;border-radius:22px;padding:30px;margin-top:28px}
+    .review-panel h3{margin:0 0 12px;font-size:23px}.review-panel p{color:#a6b6cc}
+    .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.review-field{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+    .review-field label{font-weight:600;font-size:14px}.review-field input,.review-field textarea{background:#0a1425;color:#fff;border:1px solid #33465f;border-radius:12px;padding:13px 14px;font:inherit;width:100%;box-sizing:border-box}
+    .review-field input:focus,.review-field textarea:focus{outline:2px solid #38bdf8;outline-offset:1px}.review-stars{display:flex;gap:8px;margin-top:10px}
+    .review-star{border:0;background:transparent;color:#64748b;font-size:32px;cursor:pointer;padding:0 3px}.review-star.active{color:#fbbf24}
+    .review-note{font-size:13px;line-height:1.6;margin-top:14px}.review-empty{border:1px dashed #33465f;border-radius:14px;padding:22px;color:#a6b6cc;text-align:center;margin-top:20px}
+    .review-status{margin-top:12px;color:#8bdcff;min-height:22px;font-size:14px}
+    @media(max-width:600px){.review-grid{grid-template-columns:1fr}.review-panel{padding:20px}}
+
   </style>
 </head>
 <body>
@@ -317,6 +329,7 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
+        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -470,6 +483,32 @@
       </div>
     </section>
 
+
+    <section id="reviews" class="about">
+      <div class="container review-wrap">
+        <h2 class="section-title">Client <span>Reviews & Feedback</span></h2>
+        <p class="section-subtitle">Your feedback helps me improve and helps future clients understand what it is like to work together.</p>
+        <div class="review-empty" id="published-reviews">Verified client testimonials will appear here after they have been received and added to this portfolio.</div>
+        <div class="review-panel">
+          <h3>Share Your Experience</h3>
+          <p>Worked with me on a project? Write your honest feedback below.</p>
+          <form id="feedback-form">
+            <div class="review-grid">
+              <div class="review-field"><label for="review-name">Your name *</label><input id="review-name" name="name" maxlength="100" required placeholder="Your full name"></div>
+              <div class="review-field"><label for="review-company">Company (optional)</label><input id="review-company" name="company" maxlength="120" placeholder="Company or organization"></div>
+            </div>
+            <div class="review-field"><label>Rating *</label><div class="review-stars" role="group" aria-label="Star rating">
+              <button type="button" class="review-star" data-stars="1" aria-label="1 star">★</button><button type="button" class="review-star" data-stars="2" aria-label="2 stars">★</button><button type="button" class="review-star" data-stars="3" aria-label="3 stars">★</button><button type="button" class="review-star" data-stars="4" aria-label="4 stars">★</button><button type="button" class="review-star" data-stars="5" aria-label="5 stars">★</button>
+            </div></div>
+            <div class="review-field"><label for="review-message">Your feedback *</label><textarea id="review-message" name="message" rows="5" maxlength="1500" required placeholder="Tell me about your project experience..."></textarea></div>
+            <button class="btn" type="submit" style="margin-top:20px">Copy My Feedback</button>
+            <p class="review-note">This website does not collect or store submissions. The button copies your feedback so you can send it to me through our existing communication channel. Reviews are published manually with your permission.</p>
+            <div id="review-status" class="review-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="container">
         <div class="contact-box">
@@ -505,6 +544,32 @@
   <script>
     document.getElementById("year").textContent =
       new Date().getFullYear();
+  </script>
+
+
+  <script>
+  (function(){
+    const form=document.getElementById('feedback-form');
+    const stars=[...document.querySelectorAll('.review-star')];
+    const status=document.getElementById('review-status');
+    let rating=0;
+    stars.forEach(button=>button.addEventListener('click',()=>{
+      rating=Number(button.dataset.stars);
+      stars.forEach(star=>{const selected=Number(star.dataset.stars)<=rating;star.classList.toggle('active',selected);star.setAttribute('aria-pressed',String(Number(star.dataset.stars)===rating));});
+    }));
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();
+      if(!form.reportValidity())return;
+      if(!rating){status.textContent='Please choose a star rating.';return;}
+      const name=document.getElementById('review-name').value.trim();
+      const company=document.getElementById('review-company').value.trim();
+      const message=document.getElementById('review-message').value.trim();
+      if(!name||!message){status.textContent='Please complete your name and feedback.';return;}
+      const text=['Client review for Abdul Bari Automates','Name: '+name,company?'Company: '+company:null,'Rating: '+rating+'/5 stars','Feedback: '+message].filter(Boolean).join('\n');
+      try{await navigator.clipboard.writeText(text);status.textContent='Feedback copied! Please send it to me through our existing chat or email. It has not been submitted automatically.';}
+      catch(e){status.textContent='Select and copy your feedback from the box below, then send it to me.';let output=document.getElementById('review-copy-output');if(!output){output=document.createElement('textarea');output.id='review-copy-output';output.readOnly=true;output.rows=7;output.style.width='100%';status.after(output);}output.value=text;output.focus();output.select();}
+    });
+  })();
   </script>
 
 </body>
