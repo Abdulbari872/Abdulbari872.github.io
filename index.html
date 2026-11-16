@@ -217,9 +217,81 @@
 
       section { padding: 65px 0; }
     }
+
+/* Professional Hero Section */
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.hero-content p {
+  margin-left: 0;
+}
+
+.hero-content .buttons {
+  justify-content: flex-start;
+}
+
+.hero-photo {
+  position: relative;
+  max-width: 430px;
+  margin: auto;
+  padding: 8px;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #143d75,
+    #081426
+  );
+  box-shadow: 0 0 65px rgba(56,189,248,0.23);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: 20px;
+}
+
+@media (max-width: 800px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content .buttons {
+    justify-content: center;
+  }
+
+  .hero-photo {
+    width: min(100%, 360px);
+  }
+
+  .hero-photo img {
+    height: 400px;
+  }
+}
   </style>
 </head>
-
 <body>
 
   <header>
@@ -238,29 +310,45 @@
   <main>
 
     <div class="hero" id="home">
-      <div class="container">
-        <div class="eyebrow">
-          AI Automation & Full Stack Development
-        </div>
+  <div class="container hero-layout">
 
-        <h1>Automate Smarter.<br>
-          <span>Grow Faster.</span>
-        </h1>
+    <div class="hero-content">
+      <div class="eyebrow">
+        AI Automation & Full Stack Development
+      </div>
 
-        <p>
-          Helping businesses streamline operations,
-          automate repetitive tasks, and build smarter
-          digital experiences with AI-powered solutions.
-        </p>
+      <h1>
+        Automate Smarter.<br>
+        <span>Grow Faster.</span>
+      </h1>
 
-        <div class="buttons">
-          <a href="#projects" class="btn">Explore Projects</a>
-          <a href="#contact" class="btn btn-outline">
-            Let's Work Together
-          </a>
-        </div>
+      <p>
+        Hi, I'm Abdul Bari. I build intelligent AI agents,
+        n8n automation workflows, and modern web solutions
+        to help businesses save time and grow.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn">
+          Explore My Projects
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Hire Me
+        </a>
       </div>
     </div>
+
+    <div class="hero-photo">
+      <img
+        src="profile.png"
+        alt="Abdul Bari - AI Automation and Full Stack Development"
+      >
+    </div>
+
+  </div>
+</div>
+
 
     <section class="about" id="about">
       <div class="container">
