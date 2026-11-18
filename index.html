@@ -806,6 +806,7 @@ SSS
     });
 
   } catch (error) {
+    console.error("Reviews loading error:", error);
     container.textContent = "Unable to load reviews right now.";
   }
 }
