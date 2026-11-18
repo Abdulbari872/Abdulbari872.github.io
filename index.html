@@ -831,3 +831,52 @@ loadClientReviews();
 
 </body>
 </html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const workflows = [
+    ["Google Forms", "n8n", "OpenAI", "Gmail"],
+    ["WhatsApp", "n8n", "OpenAI", "Supabase"],
+    ["Patient Request", "n8n", "AI Assistant", "Calendar"],
+    ["Guest Enquiry", "n8n", "AI Assistant", "Notification"]
+  ];
+
+  const cards = document.querySelectorAll("#projects .card");
+
+  workflows.forEach((steps, index) => {
+    const card = cards[index + 1];
+    if (!card) return;
+
+    const details = card.querySelector("details");
+    if (!details) return;
+
+    const diagram = document.createElement("div");
+    diagram.style.cssText =
+      "display:flex;flex-wrap:wrap;align-items:center;" +
+      "gap:10px;margin:20px 0;padding:15px;" +
+      "border:1px solid #38bdf8;border-radius:12px;";
+
+    steps.forEach((step, i) => {
+      const node = document.createElement("span");
+      node.className = "tag";
+      node.textContent = step;
+      diagram.appendChild(node);
+
+      if (i < steps.length - 1) {
+        const arrow = document.createElement("span");
+        arrow.textContent = "➜";
+        diagram.appendChild(arrow);
+      }
+    });
+
+    const status = Array.from(details.querySelectorAll("p"))
+      .find(p => p.textContent.trim().startsWith("Status:"));
+
+    if (status) {
+      status.before(diagram);
+    } else {
+      details.appendChild(diagram);
+    }
+  });
+});
+</script>
