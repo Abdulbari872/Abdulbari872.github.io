@@ -291,45 +291,51 @@
   }
 }
 
-    /* Client-facing project showcase */
-    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px}
-    .project-card{overflow:hidden;background:#101c30;border:1px solid #263650;border-radius:20px;transition:transform .2s,border-color .2s}
-    .project-card:hover{transform:translateY(-5px);border-color:#38bdf8}
-    .flow-visual{min-height:170px;background:radial-gradient(ellipse at center,#183e65 0%,#091628 75%);display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 12px;border-bottom:1px solid #263650}
-    .flow-visual b{color:#38bdf8;font-size:22px}
-    .flow-step{min-width:73px;min-height:75px;padding:12px 6px;background:#142b46;border:1px solid #34658a;border-radius:13px;text-align:center;font-size:26px;box-shadow:0 5px 20px #0004}
-    .flow-step small{display:block;color:#d4e9f7;font-size:11px;line-height:1.5;margin-top:3px}
-    .project-body{padding:24px}.project-body h3{font-size:22px;line-height:1.3;margin:14px 0 10px}.project-body p{color:#a6b6cc;font-size:15px;margin:0 0 18px}
-    .status{display:inline-block;border-radius:100px;padding:5px 12px;font-size:12px;font-weight:bold}
-    .status.done{color:#a6f4cd;background:#153d37}.status.progress{color:#ffda91;background:#4c361a}.status.concept{color:#b9caff;background:#29365b}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{font-size:12px;color:#8bdcff;background:#163451;padding:5px 10px;border-radius:20px}
-    @media(max-width:800px){.project-grid{grid-template-columns:1fr}.flow-visual{gap:6px}.flow-step{min-width:63px;font-size:22px}}
+/* Client Feedback Form Styling */
 
+#review-form {
+  max-width: 750px;
+}
 
-    /* Testimonials: static, no external storage */
-    .review-wrap{max-width:920px;margin:auto}.review-panel{background:#101c30;border:1px solid #263650;border-radius:22px;padding:30px;margin-top:28px}
-    .review-panel h3{margin:0 0 12px;font-size:23px}.review-panel p{color:#a6b6cc}
-    .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.review-field{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-    .review-field label{font-weight:600;font-size:14px}.review-field input,.review-field textarea{background:#0a1425;color:#fff;border:1px solid #33465f;border-radius:12px;padding:13px 14px;font:inherit;width:100%;box-sizing:border-box}
-    .review-field input:focus,.review-field textarea:focus{outline:2px solid #38bdf8;outline-offset:1px}.review-stars{display:flex;gap:8px;margin-top:10px}
-    .review-star{border:0;background:transparent;color:#64748b;font-size:32px;cursor:pointer;padding:0 3px}.review-star.active{color:#fbbf24}
-    .review-note{font-size:13px;line-height:1.6;margin-top:14px}.review-empty{border:1px dashed #33465f;border-radius:14px;padding:22px;color:#a6b6cc;text-align:center;margin-top:20px}
-    .review-status{margin-top:12px;color:#8bdcff;min-height:22px;font-size:14px}
-    @media(max-width:600px){.review-grid{grid-template-columns:1fr}.review-panel{padding:20px}}
+#review-form label {
+  display: block;
+  color: #f4f8ff;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
 
+#review-form input,
+#review-form select,
+#review-form textarea {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  background: #081426;
+  color: #ffffff;
+  border: 1px solid #34506d;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
 
-    /* Phase 1: expandable case studies */
-    .case-study{margin-top:18px;border-top:1px solid var(--border);padding-top:15px}
-    .case-study summary{cursor:pointer;color:var(--blue);font-weight:700;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .case-study summary::-webkit-details-marker{display:none}
-    .case-study summary::after{content:'+';font-size:23px;line-height:1}
-    .case-study[open] summary::after{content:'−'}
-    .case-study-content{padding-top:16px}
-    .case-study-content h4{font-size:14px;color:#f4f8ff;margin:15px 0 5px}
-    .case-study-content p{margin:0 0 9px;font-size:14px}
-    .case-study-content .case-flow{background:#091628;border:1px solid #263650;border-radius:12px;padding:12px;color:#b9e9ff;font-size:13px;line-height:1.8;overflow-wrap:anywhere}
-    .case-disclaimer{font-size:12px!important;color:#b8c8dc!important;margin-top:14px!important}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.project-card,.btn{transition:none}}
+#review-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+#review-form input:focus,
+#review-form select:focus,
+#review-form textarea:focus {
+  outline: 2px solid #38bdf8;
+}
+
+#review-form button {
+  cursor: pointer;
+  margin-top: 12px;
+}
+
   </style>
 </head>
 <body>
@@ -342,7 +348,6 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
-        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -481,48 +486,160 @@
       </div>
     </section>
 
-    <section class="about" id="projects">
-      <div class="container">
-        <div class="eyebrow">SELECTED WORK</div>
-        <h2 class="section-title">Automation <span>Projects</span></h2>
-        <p class="section-subtitle">Explore each project’s challenge, solution approach and workflow. Select “View Case Study” for details. Diagrams are illustrative, not screenshots of live systems.</p>
-        <div class="project-grid">
-          <article class="project-card"><div class="flow-visual"><div class="flow-step">✉️<small>Gmail</small></div><b>→</b><div class="flow-step">⚡<small>n8n</small></div><b>→</b><div class="flow-step">🤖<small>AI Draft</small></div><b>→</b><div class="flow-step">📊<small>Log</small></div></div><div class="project-body"><span class="status done">Built workflow</span><h3>AI Email Auto-Reply Assistant</h3><p>Processes incoming emails, prepares AI-assisted reply drafts and logs activity for review.</p><div class="tags"><span>n8n</span><span>Gmail</span><span>AI</span></div><details class="case-study"><summary>View Case Study</summary><div class="case-study-content"><h4>Business Challenge</h4><p>Managing repetitive incoming emails and drafting responses manually can take time.</p><h4>Solution Approach</h4><p>An n8n workflow processes incoming Gmail messages, uses AI to prepare a draft response, and records activity for review.</p><h4>Workflow Overview</h4><div class="case-flow">Gmail → n8n → AI draft → Gmail draft → Google Sheets log</div><h4>Technologies</h4><p>n8n, Gmail, OpenAI, Google Sheets</p><p class="case-disclaimer">Built workflow. Drafts are reviewed rather than presented as independently sent replies.</p></div></details></div></article>
-          <article class="project-card"><div class="flow-visual"><div class="flow-step">📝<small>Lead Form</small></div><b>→</b><div class="flow-step">⚡<small>n8n</small></div><b>→</b><div class="flow-step">🧠<small>AI Score</small></div><b>→</b><div class="flow-step">📧<small>Notify</small></div></div><div class="project-body"><span class="status done">Built workflow</span><h3>AI Lead Qualification</h3><p>Captures enquiries, evaluates lead information with AI and routes results for follow-up.</p><div class="tags"><span>Forms</span><span>n8n</span><span>OpenAI</span></div><details class="case-study"><summary>View Case Study</summary><div class="case-study-content"><h4>Business Challenge</h4><p>Incoming enquiries need consistent initial assessment and timely follow-up.</p><h4>Solution Approach</h4><p>A form-triggered workflow passes lead details to AI for qualification and sends a notification for follow-up.</p><h4>Workflow Overview</h4><div class="case-flow">Google Form → n8n → AI qualification → Gmail notification</div><h4>Technologies</h4><p>Google Forms, n8n, OpenAI, Gmail</p><p class="case-disclaimer">Built workflow. No unverified conversion-rate or revenue claims.</p></div></details></div></article>
-          <article class="project-card"><div class="flow-visual"><div class="flow-step">💬<small>WhatsApp</small></div><b>→</b><div class="flow-step">🤖<small>AI Agent</small></div><b>→</b><div class="flow-step">🗄️<small>Supabase</small></div></div><div class="project-body"><span class="status progress">In development</span><h3>WhatsApp AI Sales Agent</h3><p>Customer enquiry handling, lead records and AI-assisted sales conversations. Outbound messaging integration is still being finalized.</p><div class="tags"><span>WhatsApp API</span><span>n8n</span><span>Supabase</span></div><details class="case-study"><summary>View Case Study</summary><div class="case-study-content"><h4>Business Challenge</h4><p>Sales enquiries arrive over WhatsApp and customer context needs to be recorded.</p><h4>Solution Approach</h4><p>An AI-assisted workflow receives enquiries, processes customer information and updates Supabase records. Outbound WhatsApp delivery remains under development.</p><h4>Workflow Overview</h4><div class="case-flow">WhatsApp webhook → n8n AI Agent → Supabase → outbound messaging (pending)</div><h4>Technologies</h4><p>WhatsApp Cloud API, n8n, OpenAI, Supabase</p><p class="case-disclaimer">In development. This is not presented as a fully deployed client solution.</p></div></details></div></article>
-          <article class="project-card"><div class="flow-visual"><div class="flow-step">🩺<small>Patient</small></div><b>→</b><div class="flow-step">🤖<small>Assistant</small></div><b>→</b><div class="flow-step">📅<small>Calendar</small></div></div><div class="project-body"><span class="status concept">Demo concept</span><h3>Clinic Appointment Assistant</h3><p>A proposed appointment request and reminder workflow for medical and dental practices.</p><div class="tags"><span>AI Chatbot</span><span>Calendar</span><span>n8n</span></div><details class="case-study"><summary>View Case Study</summary><div class="case-study-content"><h4>Business Challenge</h4><p>Clinics can spend significant staff time answering routine appointment enquiries.</p><h4>Solution Approach</h4><p>Proposed AI assistant would collect appointment requests, check scheduling requirements and route bookings or reminders for staff confirmation.</p><h4>Workflow Overview</h4><div class="case-flow">Patient enquiry → AI assistant → calendar check → confirmation/reminder (proposed)</div><h4>Technologies</h4><p>AI chatbot, n8n, calendar integration</p><p class="case-disclaimer">Demo concept only. No live clinic deployment or measured outcomes are claimed.</p></div></details></div></article>
-          <article class="project-card"><div class="flow-visual"><div class="flow-step">🏨<small>Guest</small></div><b>→</b><div class="flow-step">💬<small>Chatbot</small></div><b>→</b><div class="flow-step">📋<small>Request</small></div></div><div class="project-body"><span class="status concept">Demo concept</span><h3>Hospitality Enquiry Automation</h3><p>A proposed assistant for restaurant and hotel FAQs, enquiry capture and booking requests.</p><div class="tags"><span>Chatbot</span><span>Workflow</span><span>CRM</span></div><details class="case-study"><summary>View Case Study</summary><div class="case-study-content"><h4>Business Challenge</h4><p>Hotels and restaurants handle repetitive questions and booking enquiries across channels.</p><h4>Solution Approach</h4><p>Proposed assistant would answer FAQs, capture booking details and forward requests to staff or a booking system.</p><h4>Workflow Overview</h4><div class="case-flow">Guest enquiry → chatbot → booking request → staff/system (proposed)</div><h4>Technologies</h4><p>Chatbot, workflow automation, CRM integration</p><p class="case-disclaimer">Demo concept only. No live hospitality deployment is claimed.</p></div></details></div></article>
-        </div>
+   
+<section class="about" id="projects">
+  <div class="container">
+    <h2 class="section-title">Automation <span>Projects</span></h2>
+    <p class="section-subtitle">
+      Explore my AI automation projects and their workflows.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="symbol">📧</div>
+        <h3>AI Email Auto-Reply Assistant</h3>
+        <p>Automates email processing and prepares AI-generated reply drafts.</p>
+        <span class="tag">n8n</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">OpenAI</span>
+        <details>
+          <summary>View Case Study</summary>
+          <p><strong>Challenge:</strong> Repetitive customer emails take time to manage.</p>
+          <p><strong>Solution:</strong> An n8n workflow processes Gmail messages, generates AI reply drafts and logs activity.</p>
+          <p><strong>Workflow:</strong> Gmail → n8n → OpenAI → Gmail Draft → Google Sheets</p>
+          <p><strong>Status:</strong> Built workflow.</p>
+        </details>
       </div>
-    </section>
 
-
-    <section id="reviews" class="about">
-      <div class="container review-wrap">
-        <h2 class="section-title">Client <span>Reviews & Feedback</span></h2>
-        <p class="section-subtitle">Your feedback helps me improve and helps future clients understand what it is like to work together.</p>
-        <div class="review-empty" id="published-reviews">Verified client testimonials will appear here after they have been received and added to this portfolio.</div>
-        <div class="review-panel">
-          <h3>Share Your Experience</h3>
-          <p>Worked with me on a project? Write your honest feedback below.</p>
-          <form id="feedback-form">
-            <div class="review-grid">
-              <div class="review-field"><label for="review-name">Your name *</label><input id="review-name" name="name" maxlength="100" required placeholder="Your full name"></div>
-              <div class="review-field"><label for="review-company">Company (optional)</label><input id="review-company" name="company" maxlength="120" placeholder="Company or organization"></div>
-            </div>
-            <div class="review-field"><label>Rating *</label><div class="review-stars" role="group" aria-label="Star rating">
-              <button type="button" class="review-star" data-stars="1" aria-label="1 star">★</button><button type="button" class="review-star" data-stars="2" aria-label="2 stars">★</button><button type="button" class="review-star" data-stars="3" aria-label="3 stars">★</button><button type="button" class="review-star" data-stars="4" aria-label="4 stars">★</button><button type="button" class="review-star" data-stars="5" aria-label="5 stars">★</button>
-            </div></div>
-            <div class="review-field"><label for="review-message">Your feedback *</label><textarea id="review-message" name="message" rows="5" maxlength="1500" required placeholder="Tell me about your project experience..."></textarea></div>
-            <button class="btn" type="submit" style="margin-top:20px">Copy My Feedback</button>
-            <p class="review-note">This website does not collect or store submissions. The button copies your feedback so you can send it to me through our existing communication channel. Reviews are published manually with your permission.</p>
-            <div id="review-status" class="review-status" role="status" aria-live="polite"></div>
-          </form>
-        </div>
+      <div class="card">
+        <div class="symbol">🎯</div>
+        <h3>AI Lead Qualification</h3>
+        <p>Collects business enquiries and qualifies leads using AI.</p>
+        <span class="tag">Google Forms</span>
+        <span class="tag">n8n</span>
+        <span class="tag">OpenAI</span>
+        <details>
+          <summary>View Case Study</summary>
+          <p><strong>Challenge:</strong> Manually evaluating leads takes time.</p>
+          <p><strong>Solution:</strong> AI evaluates lead information and sends notifications for follow-up.</p>
+          <p><strong>Workflow:</strong> Google Forms → n8n → OpenAI → Gmail</p>
+          <p><strong>Status:</strong> Built workflow.</p>
+        </details>
       </div>
-    </section>
 
-    <section id="contact">
+      <div class="card">
+        <div class="symbol">💬</div>
+        <h3>WhatsApp AI Sales Agent</h3>
+        <p>AI-powered customer enquiry and sales automation system.</p>
+        <span class="tag">WhatsApp API</span>
+        <span class="tag">n8n</span>
+        <span class="tag">Supabase</span>
+        <details>
+          <summary>View Case Study</summary>
+          <p><strong>Challenge:</strong> Managing customer enquiries and sales records.</p>
+          <p><strong>Solution:</strong> AI processes customer messages and updates Supabase records.</p>
+          <p><strong>Workflow:</strong> WhatsApp → n8n AI Agent → Supabase → WhatsApp Reply</p>
+          <p><strong>Status:</strong> In development; outbound messaging integration pending.</p>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="symbol">🏥</div>
+        <h3>Clinic Appointment Assistant</h3>
+        <p>Proposed appointment automation for doctors and dental clinics.</p>
+        <span class="tag">AI Chatbot</span>
+        <span class="tag">Calendar</span>
+        <span class="tag">n8n</span>
+        <details>
+          <summary>View Case Study</summary>
+          <p><strong>Challenge:</strong> Clinics handle repetitive appointment enquiries.</p>
+          <p><strong>Solution:</strong> A proposed assistant collects booking requests and coordinates scheduling.</p>
+          <p><strong>Workflow:</strong> Patient → AI Assistant → Calendar → Confirmation</p>
+          <p><strong>Status:</strong> Demo concept, not a live deployment.</p>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="symbol">🏨</div>
+        <h3>Hospitality Enquiry Automation</h3>
+        <p>Proposed chatbot for hotel and restaurant enquiries.</p>
+        <span class="tag">Chatbot</span>
+        <span class="tag">CRM</span>
+        <span class="tag">Automation</span>
+        <details>
+          <summary>View Case Study</summary>
+          <p><strong>Challenge:</strong> Hotels and restaurants receive repetitive booking questions.</p>
+          <p><strong>Solution:</strong> A proposed assistant answers FAQs and collects booking requests.</p>
+          <p><strong>Workflow:</strong> Customer → Chatbot → Booking Request → Staff</p>
+          <p><strong>Status:</strong> Demo concept, not a live deployment.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
+ 
+  
+<section id="reviews" class="about">
+  <div class="container">
+    <h2 class="section-title">Client <span>Reviews</span></h2>
+    <p class="section-subtitle">
+      Feedback from clients I've worked with.
+    </p>
+
+    <div id="client-reviews">
+      <p>Loading client reviews...</p>
+    </div>
+
+<div class="card" style="margin-top:30px">
+  <h3>Share Your Feedback</h3>
+  <p>Worked with me? Share your experience below.</p>
+
+  <form id="review-form">
+    <p>
+      <label for="review-name">Your Name *</label>
+      <input id="review-name" type="text" required
+        maxlength="100" placeholder="Your full name">
+    </p>
+
+    <p>
+      <label for="review-company">Company (Optional)</label>
+      <input id="review-company" type="text"
+        maxlength="120" placeholder="Company name">
+    </p>
+
+    <p>
+      <label for="review-rating">Rating *</label>
+      <select id="review-rating" required>
+        <option value="">Select Rating</option>
+        <option value="5">★★★★★ - Excellent</option>
+        <option value="4">★★★★ - Very Good</option>
+        <option value="3">★★★ - Good</option>
+        <option value="2">★★ - Fair</option>
+        <option value="1">★ - Poor</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="review-feedback">Your Feedback *</label>
+      <textarea id="review-feedback" rows="5"
+        maxlength="1500" required
+        placeholder="Write your feedback"></textarea>
+    </p>
+
+    <button class="btn" type="submit">
+      Submit Feedback
+    </button>
+
+    <p id="review-submit-status" role="status"></p>
+  </form>
+</div>
+
+  </div>
+</section>
+    
+  <section id="contact">
       <div class="container">
         <div class="contact-box">
           <h2 class="section-title">
@@ -541,7 +658,7 @@
             </a>
           </div>
           <p>
-            Have a project in mind? Reach out through GitHub to discuss your requirements.
+            Direct contact details will be added soon.
           </p>
         </div>
       </div>
@@ -559,31 +676,96 @@
       new Date().getFullYear();
   </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(
+    'button, [role="tab"]'
+  );
 
-  <script>
-  (function(){
-    const form=document.getElementById('feedback-form');
-    const stars=[...document.querySelectorAll('.review-star')];
-    const status=document.getElementById('review-status');
-    let rating=0;
-    stars.forEach(button=>button.addEventListener('click',()=>{
-      rating=Number(button.dataset.stars);
-      stars.forEach(star=>{const selected=Number(star.dataset.stars)<=rating;star.classList.toggle('active',selected);star.setAttribute('aria-pressed',String(Number(star.dataset.stars)===rating));});
-    }));
-    form.addEventListener('submit',async event=>{
-      event.preventDefault();
-      if(!form.reportValidity())return;
-      if(!rating){status.textContent='Please choose a star rating.';return;}
-      const name=document.getElementById('review-name').value.trim();
-      const company=document.getElementById('review-company').value.trim();
-      const message=document.getElementById('review-message').value.trim();
-      if(!name||!message){status.textContent='Please complete your name and feedback.';return;}
-      const text=['Client review for Abdul Bari Automates','Name: '+name,company?'Company: '+company:null,'Rating: '+rating+'/5 stars','Feedback: '+message].filter(Boolean).join('\n');
-      try{await navigator.clipboard.writeText(text);status.textContent='Feedback copied! Please send it to me through our existing chat or email. It has not been submitted automatically.';}
-      catch(e){status.textContent='Select and copy your feedback from the box below, then send it to me.';let output=document.getElementById('review-copy-output');if(!output){output=document.createElement('textarea');output.id='review-copy-output';output.readOnly=true;output.rows=7;output.style.width='100%';status.after(output);}output.value=text;output.focus();output.select();}
+  console.log("Portfolio buttons found:", buttons.length);
+
+  buttons.forEach(function (button) {
+    if (button.textContent.includes("Generate Sample Draft")) {
+      button.addEventListener("click", function () {
+        const output = document.createElement("div");
+        output.style.cssText =
+          "margin-top:20px;padding:20px;background:#102d4c;" +
+          "border:1px solid #38bdf8;border-radius:12px;color:white;";
+
+        output.textContent =
+          "Sample AI Draft: Thank you for contacting us! " +
+          "We would be happy to discuss an automation " +
+          "solution for your business. Please share your " +
+          "requirements and preferred meeting time.";
+
+        const old = document.getElementById("email-demo-result");
+        if (old) old.remove();
+
+        output.id = "email-demo-result";
+        button.insertAdjacentElement("afterend", output);
+      });
+    }
+  });
+});
+</script>
+
+<script>
+async function loadClientReviews() {
+  const container = document.getElementById("client-reviews");
+  if (!container) return;
+
+  try {
+    
+const url = "https://abdul-bari-reviews-api.marketminds349.workers.dev/reviews";
+
+    const response = await fetch(url);
+
+    if (!response.ok) throw new Error("Failed to load reviews");
+
+   
+const reviews = await response.json();
+container.innerHTML = "";
+
+if (!reviews.length) {
+  container.textContent = "No client reviews yet.";
+  return;
+}
+
+reviews.forEach(review => {
+  const name = review.name || "Client";
+  const company = review.company || "";
+  const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
+  const feedback = review.feedback || "";
+SSS 
+
+      const card = document.createElement("div");
+      card.className = "card";
+      card.style.marginBottom = "18px";
+
+      const heading = document.createElement("h3");
+      heading.textContent = name;
+
+      const companyText = document.createElement("p");
+      companyText.textContent = company;
+
+      const stars = document.createElement("p");
+      stars.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
+      stars.style.color = "#fbbf24";
+
+      const message = document.createElement("p");
+      message.textContent = feedback;
+
+      card.append(heading, companyText, stars, message);
+      container.appendChild(card);
     });
-  })();
-  </script>
+
+  } catch (error) {
+    container.textContent = "Unable to load reviews right now.";
+  }
+}
+
+loadClientReviews();
+</script>
 
 </body>
 </html>
