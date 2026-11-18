@@ -728,6 +728,254 @@
 </section>
     
  
+<!-- FUTURISTIC AI ROBOT SECTION -->
+<section id="futuristic-ai-robot">
+  <div class="future-bot-scene" id="futureBotScene">
+
+    <div class="future-bot" id="futureBot">
+      <div class="future-bot-antenna"></div>
+      <div class="future-bot-orbit"></div>
+
+      <div class="future-bot-arm left"></div>
+      <div class="future-bot-arm right"></div>
+
+      <div class="future-bot-head">
+        <div class="future-bot-visor">
+          <div class="future-bot-eye"></div>
+          <div class="future-bot-eye"></div>
+        </div>
+      </div>
+
+      <div class="future-bot-body">
+        <div class="future-bot-core"></div>
+      </div>
+    </div>
+
+    <div class="future-bot-shadow"></div>
+
+    <div class="future-bot-message">
+      <h3>Meet Your AI Automation Partner</h3>
+      <p>Intelligent workflows. Smarter businesses. 🚀</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+#futuristic-ai-robot {
+  padding: 55px 20px 15px;
+  background: #081426;
+  overflow: hidden;
+}
+
+.future-bot-scene {
+  min-height: 350px;
+  max-width: 750px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+}
+
+.future-bot {
+  position: relative;
+  width: 190px;
+  height: 215px;
+  transform-style: preserve-3d;
+  animation: futureBotFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px #00d5ff66);
+}
+
+.future-bot-antenna {
+  position: absolute;
+  top: 1px;
+  left: 91px;
+  width: 8px;
+  height: 30px;
+  background: #6588b2;
+  border-radius: 4px;
+}
+
+.future-bot-antenna::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -7px;
+  width: 22px;
+  height: 22px;
+  background: #42efff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #42efff;
+}
+
+.future-bot-head {
+  position: absolute;
+  top: 28px;
+  left: 21px;
+  width: 148px;
+  height: 100px;
+  border: 3px solid #6adfff;
+  border-radius: 31px 31px 23px 23px;
+  background: linear-gradient(
+    135deg, #a8c7e2, #1c466b 60%, #0b213c
+  );
+  box-shadow: inset 0 0 20px #54d8ff33,
+              0 0 16px #00d5ff44;
+}
+
+.future-bot-visor {
+  position: absolute;
+  inset: 15px 11px;
+  background: linear-gradient(130deg, #071526, #123e61);
+  border-radius: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #2b8cad;
+}
+
+.future-bot-eye {
+  width: 31px;
+  height: 11px;
+  background: #5df1ff;
+  border-radius: 12px;
+  box-shadow: 0 0 14px #00eaff;
+  animation: futureBotEye 2.4s ease-in-out infinite;
+}
+
+.future-bot-body {
+  position: absolute;
+  top: 138px;
+  left: 43px;
+  width: 104px;
+  height: 71px;
+  border: 3px solid #78bde0;
+  border-radius: 20px 20px 28px 28px;
+  background: linear-gradient(
+    140deg, #719cbd, #123653 75%
+  );
+  box-shadow: inset 0 0 16px #00cfff44;
+}
+
+.future-bot-core {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  width: 29px;
+  height: 29px;
+  background: #24e8ff;
+  border: 4px solid #a5f6ff;
+  border-radius: 50%;
+  box-shadow: 0 0 24px #00eaff;
+  animation: futureBotCore 2s ease-in-out infinite;
+}
+
+.future-bot-arm {
+  position: absolute;
+  top: 145px;
+  width: 25px;
+  height: 58px;
+  background: linear-gradient(#81b8d8, #285677);
+  border: 2px solid #6db8df;
+  border-radius: 14px;
+}
+
+.future-bot-arm.left {
+  left: 11px;
+  transform: rotate(18deg);
+}
+
+.future-bot-arm.right {
+  right: 11px;
+  transform-origin: top center;
+  animation: futureBotArm 3s ease-in-out infinite;
+}
+
+.future-bot-orbit {
+  position: absolute;
+  top: 90px;
+  left: -18px;
+  width: 226px;
+  height: 95px;
+  border: 1px solid #00d5ff55;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.future-bot-shadow {
+  width: 130px;
+  height: 14px;
+  margin-top: 12px;
+  border-radius: 50%;
+  background: #00bfff55;
+  filter: blur(9px);
+}
+
+.future-bot-message {
+  text-align: center;
+  margin-top: 27px;
+}
+
+.future-bot-message h3 {
+  color: #f1f8ff;
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+
+.future-bot-message p {
+  color: #a3c8e5;
+  font-size: 15px;
+  margin: 0;
+}
+
+@keyframes futureBotFloat {
+  0%, 100% {
+    transform: translateY(0) rotateY(-7deg);
+  }
+  50% {
+    transform: translateY(-16px) rotateY(7deg);
+  }
+}
+
+@keyframes futureBotEye {
+  0%, 100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: .6;
+    transform: scaleX(.8);
+  }
+}
+
+@keyframes futureBotCore {
+  0%, 100% { box-shadow: 0 0 16px #00eaff; }
+  50% { box-shadow: 0 0 32px #00eaff; }
+}
+
+@keyframes futureBotArm {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(-35deg); }
+}
+
+@media (max-width: 600px) {
+  .future-bot-message h3 { font-size: 19px; }
+  .future-bot-scene { min-height: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .future-bot,
+  .future-bot-eye,
+  .future-bot-core,
+  .future-bot-arm.right {
+    animation: none;
+  }
+}
+</style>
+
 <section id="contact">
   <div class="container">
     <div class="contact-box">
@@ -916,6 +1164,37 @@ reviews.forEach(review => {
 }
 
 loadClientReviews();
+</script>
+
+<script>
+(function () {
+  const robot = document.getElementById("futureBot");
+  const scene = document.getElementById("futureBotScene");
+
+  if (!robot || !scene) return;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (reducedMotion) return;
+
+  scene.addEventListener("mousemove", function (event) {
+    const rect = scene.getBoundingClientRect();
+
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    robot.style.animation = "none";
+    robot.style.transform =
+      `rotateY(${x * 28}deg) rotateX(${-y * 14}deg)`;
+  });
+
+  scene.addEventListener("mouseleave", function () {
+    robot.style.transform = "";
+    robot.style.animation = "";
+  });
+})();
 </script>
 
 </body>
