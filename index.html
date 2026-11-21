@@ -336,6 +336,14 @@
   margin-top: 12px;
 }
 
+
+/* Workflow screenshots */
+#projects .workflow-figure{margin:20px 0 14px;}
+#projects .workflow-figure a{display:block;border:1px solid #315d80;border-radius:12px;overflow:hidden;background:#151719;}
+#projects .workflow-figure img{display:block;width:100%;height:auto;transition:transform .2s;}
+#projects .workflow-figure a:hover{border-color:#38bdf8;}
+#projects .workflow-figure figcaption{font-size:12px;color:#9eb4cd;margin-top:8px;}
+#projects details[open]{margin-top:14px;}
   </style>
 </head>
 <body>
@@ -582,20 +590,9 @@
           <p><strong>Solution:</strong> An n8n workflow processes Gmail messages, generates AI reply drafts and logs activity.</p>
           <p><strong>Workflow:</strong> Gmail → n8n → OpenAI → Gmail Draft → Google Sheets</p>
 
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:20px 0;padding:15px;border:1px solid #38bdf8;border-radius:12px;">
-  <span class="tag">📧 Gmail</span>
-  <span>➡️</span>
-  <span class="tag">⚙️ n8n</span>
-  <span>➡️</span>
-  <span class="tag">🤖 OpenAI</span>
-  <span>➡️</span>
-  <span class="tag">📝 Gmail Draft</span>
-  <span>➡️</span>
-  <span class="tag">📊 Google Sheets</span>
-</div>
 
 
-
+          <figure class="workflow-figure"><a href="workflow-diagrams/01-email-auto-reply.png" target="_blank" rel="noopener" title="Open full workflow diagram"><img src="workflow-diagrams/01-email-auto-reply.png" alt="n8n-style conceptual workflow diagram for project 1" loading="lazy"></a><figcaption>Illustrative workflow diagram · Click to view full size</figcaption></figure>
           <p><strong>Status:</strong> Built workflow.</p>
         </details>
       </div>
@@ -612,6 +609,7 @@
           <p><strong>Challenge:</strong> Manually evaluating leads takes time.</p>
           <p><strong>Solution:</strong> AI evaluates lead information and sends notifications for follow-up.</p>
           <p><strong>Workflow:</strong> Google Forms → n8n → OpenAI → Gmail</p>
+          <figure class="workflow-figure"><a href="workflow-diagrams/02-lead-qualification.svg" target="_blank" rel="noopener" title="Open full workflow diagram"><img src="workflow-diagrams/02-lead-qualification.svg" alt="n8n-style conceptual workflow diagram for project 2" loading="lazy"></a><figcaption>Illustrative workflow diagram · Click to view full size</figcaption></figure>
           <p><strong>Status:</strong> Built workflow.</p>
         </details>
       </div>
@@ -628,6 +626,7 @@
           <p><strong>Challenge:</strong> Managing customer enquiries and sales records.</p>
           <p><strong>Solution:</strong> AI processes customer messages and updates Supabase records.</p>
           <p><strong>Workflow:</strong> WhatsApp → n8n AI Agent → Supabase → WhatsApp Reply</p>
+          <figure class="workflow-figure"><a href="workflow-diagrams/03-whatsapp-sales.svg" target="_blank" rel="noopener" title="Open full workflow diagram"><img src="workflow-diagrams/03-whatsapp-sales.svg" alt="n8n-style conceptual workflow diagram for project 3" loading="lazy"></a><figcaption>Illustrative workflow diagram · Click to view full size</figcaption></figure>
           <p><strong>Status:</strong> In development; outbound messaging integration pending.</p>
         </details>
       </div>
@@ -644,6 +643,7 @@
           <p><strong>Challenge:</strong> Clinics handle repetitive appointment enquiries.</p>
           <p><strong>Solution:</strong> A proposed assistant collects booking requests and coordinates scheduling.</p>
           <p><strong>Workflow:</strong> Patient → AI Assistant → Calendar → Confirmation</p>
+          <figure class="workflow-figure"><a href="workflow-diagrams/04-clinic-appointment.svg" target="_blank" rel="noopener" title="Open full workflow diagram"><img src="workflow-diagrams/04-clinic-appointment.svg" alt="n8n-style conceptual workflow diagram for project 4" loading="lazy"></a><figcaption>Illustrative workflow diagram · Click to view full size</figcaption></figure>
           <p><strong>Status:</strong> Demo concept, not a live deployment.</p>
         </details>
       </div>
@@ -660,6 +660,7 @@
           <p><strong>Challenge:</strong> Hotels and restaurants receive repetitive booking questions.</p>
           <p><strong>Solution:</strong> A proposed assistant answers FAQs and collects booking requests.</p>
           <p><strong>Workflow:</strong> Customer → Chatbot → Booking Request → Staff</p>
+          <figure class="workflow-figure"><a href="workflow-diagrams/05-hospitality-chatbot.svg" target="_blank" rel="noopener" title="Open full workflow diagram"><img src="workflow-diagrams/05-hospitality-chatbot.svg" alt="n8n-style conceptual workflow diagram for project 5" loading="lazy"></a><figcaption>Illustrative workflow diagram · Click to view full size</figcaption></figure>
           <p><strong>Status:</strong> Demo concept, not a live deployment.</p>
         </details>
       </div>
@@ -1199,52 +1200,3 @@ loadClientReviews();
 
 </body>
 </html>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const workflows = [
-    ["Google Forms", "n8n", "OpenAI", "Gmail"],
-    ["WhatsApp", "n8n", "OpenAI", "Supabase"],
-    ["Patient Request", "n8n", "AI Assistant", "Calendar"],
-    ["Guest Enquiry", "n8n", "AI Assistant", "Notification"]
-  ];
-
-  const cards = document.querySelectorAll("#projects .card");
-
-  workflows.forEach((steps, index) => {
-    const card = cards[index + 1];
-    if (!card) return;
-
-    const details = card.querySelector("details");
-    if (!details) return;
-
-    const diagram = document.createElement("div");
-    diagram.style.cssText =
-      "display:flex;flex-wrap:wrap;align-items:center;" +
-      "gap:10px;margin:20px 0;padding:15px;" +
-      "border:1px solid #38bdf8;border-radius:12px;";
-
-    steps.forEach((step, i) => {
-      const node = document.createElement("span");
-      node.className = "tag";
-      node.textContent = step;
-      diagram.appendChild(node);
-
-      if (i < steps.length - 1) {
-        const arrow = document.createElement("span");
-        arrow.textContent = "➜";
-        diagram.appendChild(arrow);
-      }
-    });
-
-    const status = Array.from(details.querySelectorAll("p"))
-      .find(p => p.textContent.trim().startsWith("Status:"));
-
-    if (status) {
-      status.before(diagram);
-    } else {
-      details.appendChild(diagram);
-    }
-  });
-});
-</script>
